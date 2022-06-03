@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifras Randômicas</title>
+    <style>
+        #sheet {
+            background-image: url('assets/img/sheet.png');
+            height: 552px;
+            margin: 0 auto;
+            width: 1064px;
+        }
+        .linha {
+            font-size: xx-large;
+            padding-left: 75px;
+        }
+        #first { 
+            position: relative;
+            top: 30px;
+        }
+        #second { 
+            position: relative;
+            top: 164px;
+        }
+        #third { 
+            position: relative;
+            top: 297px;
+        }      
+        .cifra {
+            display: inline-block;
+            width: 190px;
+        }  
+    </style>
+
+</head>
+
+<body>
+    <div id="sheet">
+        <div class="linha" id="first"></div>
+        <div class="linha" id="second"></div>
+        <div class="linha" id="third"></div>                
+    </div>
+    <script>
+        
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        
+        var cifras = ['C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#', 'Ab', 'A', 'A#', 'Bb', 'B'];
+        shuffle(cifras);
+
+        var l = document.getElementById('first');
+        for (var i = 0; i < 5; i++) {
+            let c = document.createElement('span');
+            c.classList.add('cifra');
+            c.innerText = cifras[i];
+            l.appendChild(c);
+        }
+
+        var l = document.getElementById('second');
+        for (var i = 5; i < 10; i++) {
+            let c = document.createElement('span');
+            c.classList.add('cifra');
+            c.innerText = cifras[i];
+            l.appendChild(c);
+        }
+
+        var l = document.getElementById('third');
+        for (var i = 10; i < 15; i++) {
+            let c = document.createElement('span');
+            c.classList.add('cifra');
+            c.innerText = cifras[i];
+            l.appendChild(c);
+        }
+
+
+        console.log(cifras);
+
+    </script>    
+</body>
+</html>
